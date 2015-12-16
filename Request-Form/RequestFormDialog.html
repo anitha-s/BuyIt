@@ -1,0 +1,117 @@
+<script>
+  function successCallback(url) {
+  alert("Success");
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('submitBtn').value = "Submit";
+  }
+  
+  function sendData(){
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitBtn').value = "Please wait...";
+  google.script.run.withSuccessHandler(successCallback).onSettingsSubmit(document.getElementById('BuyIt'));
+  }
+  </script>
+  
+<style>
+label{
+font-weight: 350;
+font-size: 16px;
+font-family: 'Helvetica';
+color:#020202
+}
+
+label a {
+  font-size: 12px;
+}
+
+div, span {
+  font-family: 'Helvetica';
+  font-style: Italic;
+  font-size: 13px;
+  color:#484545
+}
+input[type='text']{
+  width: 420px;
+  height: 25px;
+}
+
+div, label{
+margin: 10px 10px;
+}
+</style>
+    
+<form id="BuyIt">
+
+<label for="cids">  Enter Request Form URL: </label>
+<div>
+<input id="request_url" name="request_url" type="text" />
+</div>
+
+
+<label for="cids"> Enter Expense Sheet URL:</label>
+<div>
+<input id="expense_url" name="expense_url" type="text" />
+  </div>
+  
+<label for="cids"> Enter Trello App-Key: <a href="https://trello.com/app-key">Trello AppKey</a></label>
+<div>
+<input id="app_key" name="app_key" type="text" />
+  </div>
+  
+ <label for="cids"> Enter Trello User Token: <a href="https://trello.com/1/authorize?key=%3Capp%20key%3E&name=MyApp&scope=read,write&expiration=never&response_type=token">Trello User Token</a></label>
+<div>
+<input id="user_token" name="user_token" type="text" />
+  </div>
+
+<label for="cids"> Enter ID of the "Request" list:</label>
+<div>
+<span>List ID in which you want your request card to be created.</span> 
+   
+<input id="list_Id" name="list_Id" type="text" />
+  </div>
+
+  
+<label for="cids"> Enter Approver Name1:</label>
+<div>
+<input id="member_name1" name="member_name1" type="text" />
+  </div>
+
+<label for="cids"> Enter Approver ID1:</label>
+<div>
+<input id="member_Id1" name="member_Id1" type="text" />
+  </div>
+
+<label for="cids"> Enter Approver Name2:</label>
+<div>
+<input id="member_name2" name="member_name2" type="text" />
+  </div>
+
+<label for="cids"> Enter Approver ID2:</label>
+<div>
+<input id="member_Id2" name="member_Id2" type="text" />
+  </div>
+  
+<label for="cids"> Enter Approver Name3:</label>
+<div>
+<input id="member_name3" name="member_name3" type="text" />
+  </div>
+
+<label for="cids"> Enter Approver ID3:</label>
+<div>
+<input id="member_Id3" name="member_Id3" type="text" />
+  </div>
+  
+
+  
+  <div>
+  <input id="submitBtn" type="button" value="Submit"
+  onclick="sendData()" />
+  </div>
+  </form>
+  <div id="status"></div>
+       
+<style>
+
+
+
+

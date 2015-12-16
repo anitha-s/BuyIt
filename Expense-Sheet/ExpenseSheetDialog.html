@@ -1,0 +1,68 @@
+<script>
+  function successCallback(url) {
+  alert("Success");
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('submitBtn').value = "Submit";
+  }
+  
+  function sendData(){
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitBtn').value = "Please wait...";
+  google.script.run.withSuccessHandler(successCallback).onSettingsSubmit(document.getElementById('BuyIt'));
+  }
+  </script>
+  
+<style>
+
+
+label{
+font-weight: 350;
+font-size: 16px;
+font-family: 'Helvetica';
+color:#020202
+}
+
+input[type='text']{
+  width: 420px;
+  height: 25px;
+}
+div, label{
+margin: 10px 10px;
+}
+</style>
+    
+<form id="BuyIt">
+
+<label for="cids"> Enter Approver Form URL:</label>
+<div>
+<input id="approver_url" name="approver_url" type="text" />
+  </div>
+  
+<label for="cids"> Enter Request Form URL:</label>
+<div>
+<input id="request_url" name="request_url" type="text" />
+  </div>
+  
+<label for="cids"> Enter Expense Sheet URL:</label>
+<div>
+<input id="expense_url" name="expense_url" type="text" />
+  </div>
+ 
+
+
+
+  <div>
+ 
+  <input id="submitBtn" type="button" value="Submit"
+  onclick="sendData()" />
+  </div>
+  </form>
+  <div id="status"></div>
+       
+
+
+
+
+
+
+
